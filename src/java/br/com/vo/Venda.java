@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
  * @author eryvan lima
  */
 @Entity
-class Venda implements Serializable {
+public class Venda implements Serializable {
     @Id
     @GeneratedValue
     private int id;
