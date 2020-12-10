@@ -1,12 +1,66 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
-</html>
 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:head >
+        <title>Login</title>
+        <link href="estilo.css" rel = "stylesheet"></link>
+    </h:head>
+
+    <h:body >
+
+        <div class="container" >
+
+            <a class="links" id="paralogin"></a>
+
+
+            <div class="content">      
+                <!--FORMULÁRIO DE LOGIN-->
+
+                <div id="login">
+
+                    <img src="img/seta.png" alt="Voltar Para Página Inicial" 
+                                                    title="Voltar Para Página Inicial" width="100" />
+
+                    <h:form>    
+                        <h1>Login</h1>
+                        <h2>Digite seu e-mail:</h2>
+                        <p:inputText />
+                        <h2>Digite sua senha:</h2>
+                        <p:password value="#{loginBean.login.senha}" />
+                        <h3><center>
+                                <p:commandButton action="#{loginBean.logar()}" value="Logar"/> 
+                            </center></h3>
+                        <h2>           <p> 
+                                <input type="checkbox" name="manterlogado" id="manterlogado" value="" /> 
+                                <label for="manterlogado">Manter-me logado</label>
+                            </p></h2>
+
+                        <h2>   
+                            <p class="link">
+                                Ainda não tem conta?
+                                <a href="">Cadastre-se</a>
+                            </p>
+                        </h2>
+                    </h:form>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+        <div> <img src="img/fundo.png" alt="Img" 
+                   title="Img" width="1245" />      
+        </div>
+
+
+
+    </h:body>
+
+</html>
