@@ -6,38 +6,31 @@
     
       <h:head>
         <title>Adicionar usuário</title>
-          <link href="estilo.css" rel = "stylesheet"></link>
     </h:head>
     
 
     <h:body>
-        <div class="container" >
-            
-            <div class="content">    
-                <div id="login">
             
         <h:form>
             <h3>Usuários</h3>
-            <p:panelGrid columns="4" layout="flex" contentStyleClass="p-align-baseline ui-fluid">
+            <p:panelGrid columns="4" layout="flex">
                 <p:outputLabel for="nome" value="Nome: " />
-                <p:inputText id="nome" />
+                <p:inputText id="nome" value="#{usuarioBean.usuario.nome}" />
 
                 <p:outputLabel for="email" value="E-mail: " />
-                <p:inputText id="email" />
+                <p:inputText id="email"  value="#{usuarioBean.usuario.email}"/>
 
                 <p:outputLabel for="senha" value="Senha: " />
-                <p:inputText id="senha" />
+                <p:inputText id="senha" value="#{usuarioBean.usuario.senha}"/>
 
                 <p:outputLabel for="cpf" value="CPF:" />
-                <p:inputMask id="cpf" value="#{maskView.ssn}" mask="999-999-999-99"/>
+                <p:inputMask id="cpf" value="#{usuarioBean.usuario.cpf}" mask="999.999.999-99"/>
+                
+                <p:commandButton action="#{usuarioBean.salvar()}" />
             </p:panelGrid>
             
         </h:form>
 
-    </div></div>
-            </div>
-                <div> <img src="img/fundo.png" alt="Img" 
-                   title="Img" width="1245" /></div>
     </h:body>
 </html>
 
