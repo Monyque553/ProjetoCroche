@@ -17,11 +17,13 @@ import javax.persistence.Id;
  */
 @Entity
 public class Produto implements Serializable {
+
     @Id
     @GeneratedValue
     private int id;
     private String nome;
-    private double valor;
+    private double valorVenda;
+    private double valorCusto;
     private int quantidade;
 
     @Override
@@ -29,8 +31,6 @@ public class Produto implements Serializable {
         System.out.println(this);
         return nome;
     }
-    
-    
 
     public int getId() {
         return id;
@@ -48,12 +48,20 @@ public class Produto implements Serializable {
         this.nome = nome;
     }
 
-    public double getValor() {
-        return valor;
+    public double getValorVenda() {
+        return valorVenda;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
+    public void setValorVenda(double valorVenda) {
+        this.valorVenda = valorVenda;
+    }
+
+    public double getValorCusto() {
+        return valorCusto;
+    }
+
+    public void setValorCusto(double valorCusto) {
+        this.valorCusto = valorCusto;
     }
 
     public int getQuantidade() {
@@ -69,7 +77,8 @@ public class Produto implements Serializable {
         int hash = 7;
         hash = 31 * hash + this.id;
         hash = 31 * hash + Objects.hashCode(this.nome);
-        hash = 31 * hash + (int) (Double.doubleToLongBits(this.valor) ^ (Double.doubleToLongBits(this.valor) >>> 32));
+        hash = 31 * hash + (int) (Double.doubleToLongBits(this.valorVenda) ^ (Double.doubleToLongBits(this.valorVenda) >>> 32));
+        hash = 31 * hash + (int) (Double.doubleToLongBits(this.valorCusto) ^ (Double.doubleToLongBits(this.valorCusto) >>> 32));
         hash = 31 * hash + this.quantidade;
         return hash;
     }
@@ -89,7 +98,10 @@ public class Produto implements Serializable {
         if (this.id != other.id) {
             return false;
         }
-        if (Double.doubleToLongBits(this.valor) != Double.doubleToLongBits(other.valor)) {
+        if (Double.doubleToLongBits(this.valorVenda) != Double.doubleToLongBits(other.valorVenda)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.valorCusto) != Double.doubleToLongBits(other.valorCusto)) {
             return false;
         }
         if (this.quantidade != other.quantidade) {
@@ -100,6 +112,5 @@ public class Produto implements Serializable {
         }
         return true;
     }
-    
-    
+
 }

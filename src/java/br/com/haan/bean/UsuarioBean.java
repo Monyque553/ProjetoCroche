@@ -1,22 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.com.haan.bean;
 
 import br.com.haan.dao.UsuarioDAO;
 import br.com.vo.Usuario;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.persistence.EntityManager;
 
-/**
- *
- * @author Helder
- */
+    
 @ManagedBean
 @SessionScoped
 public class UsuarioBean {
+         private EntityManager manager;
     private Usuario usuario;
     
     public UsuarioBean(){
@@ -34,6 +29,8 @@ public class UsuarioBean {
     public String salvar(){
         new UsuarioDAO().salvar(usuario);
         usuario= new Usuario();
-        return "index.xhtml";
+        return "telaInicial.xhtml";
     }
+    
+
 }

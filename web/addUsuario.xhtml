@@ -3,33 +3,56 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui" >
-    
-      <h:head>
+
+    <h:head>
         <title>Adicionar usuário</title>
+        <link href="estilo.css" rel = "stylesheet"></link>
     </h:head>
-    
 
     <h:body>
-            
-        <h:form>
-            <h3>Usuários</h3>
-            <p:panelGrid columns="4" layout="flex">
-                <p:outputLabel for="nome" value="Nome: " />
-                <p:inputText id="nome" value="#{usuarioBean.usuario.nome}" />
+        <div class="container" >
 
-                <p:outputLabel for="email" value="E-mail: " />
-                <p:inputText id="email"  value="#{usuarioBean.usuario.email}"/>
+            <a class="links" id="paralogin"></a>
 
-                <p:outputLabel for="senha" value="Senha: " />
-                <p:inputText id="senha" value="#{usuarioBean.usuario.senha}"/>
 
-                <p:outputLabel for="cpf" value="CPF:" />
-                <p:inputMask id="cpf" value="#{usuarioBean.usuario.cpf}" mask="999.999.999-99"/>
-                
-                <p:commandButton action="#{usuarioBean.salvar()}" />
-            </p:panelGrid>
-            
-        </h:form>
+            <div class="content">      
+                <!--FORMULÁRIO DE LOGIN-->
+
+                <div id="login">
+                    <a href="telaInicial.xhtml"> <img src="img/seta.png" alt="Voltar Para Página Inicial" 
+                                                      title="Voltar Para Página Inicial" width="100" /> </a>
+
+                    <h:form>
+                        <h1>Adicione um usuário:</h1>
+                        <p:panelGrid columns="4" layout="flex">
+                            <p:outputLabel for="nome" value="Nome: " />
+                            <p:inputText id="nome" value="#{usuarioBean.usuario.nome}" />
+
+                            <p:outputLabel for="email" value="E-mail: " />
+                            <p:inputText id="email"  value="#{usuarioBean.usuario.email}"/>
+
+                            <p:outputLabel for="senha" value="Senha: " />
+                            <p:password id= "senha" value="#{usuarioBean.usuario.senha}" />
+
+                            <p:outputLabel for="cpf" value="CPF: " />
+                            <p:inputMask id="cpf" value="#{usuarioBean.usuario.cpf}" mask="999.999.999-99"/>
+
+                        </p:panelGrid>
+                        <center>
+                            <p class="link">
+                                <p:commandButton value="Salvar" action="#{usuarioBean.salvar()}" />
+                            </p>
+                        </center> 
+
+                    </h:form>
+                </div>
+
+
+            </div>
+        </div>
+        <div> <img src="img/fundo.png" alt="Img" 
+                   title="Img" width="1245" />      
+        </div>
 
     </h:body>
 </html>
