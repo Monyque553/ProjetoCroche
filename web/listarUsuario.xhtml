@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui" >
+
+    <h:head>
+        <title>Listar usuário</title>
+        <link href="estilo.css" rel = "stylesheet"></link>
+    </h:head>
+    
+    <h:body>
+        <h:form>
+            <p:growl id="message" showDetail="true" />
+
+            <p:dataTable var="usuario" value="#{usuarioBean.lista}"  rows="25"
+                         paginator="true" id="tabela"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} usuarios"
+                         rowsPerPageTemplate="1,10,25"
+                         emptyMessage="Não foi encontrado nenhum usuario com essas especificações" 
+                         filteredValue="#{usuarioBean.listaFiltrada}"
+                         selectionMode="single" selection="#{usuarioBean.usuarioSelecionado}" rowKey="#{usuario.id}"
+                         >
+                <p:column headerText="Id" >
+                    <h:outputText value="#{usuario.id}" />
+                </p:column>
+                <p:column headerText="Nome" filterBy="#{usuario.nome}" filterMatchMode="contains">
+                    <h:outputText value="#{usuario.nome}" />
+                </p:column>
+                <p:column headerText="E-mail">
+                    <h:outputText value="#{usuario.email}" />
+                </p:column>
+                <p:column headerText="Senha">
+                    <h:outputText value="#{usuario.senha}" />
+                <p:column headerText="CPF" >
+                    <h:outputText value="#{usuario.cpf}" />
+                </p:column>
+                </p:column>
+            </p:dataTable>
+            <p:commandButton value="Remover" action="#{usuarioBean.remover()}" update="message, tabela">
+                <p:confirm header="Remover Usuario" message="Você tem certeza que deseja remover esse usuario?" icon="pi pi-exclamation-triangle" />
+            </p:commandButton>
+            
+            <p:commandButton value="Atualizar" action="#{usuarioBean.prepararParaAtualizar()}">
+            </p:commandButton>
+
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+            </p:confirmDialog>
+
+        </h:form>
+    </h:body>
+</html>

@@ -38,11 +38,10 @@
                             <p:inputMask id="cpf" value="#{usuarioBean.usuario.cpf}" mask="999.999.999-99"/>
 
                         </p:panelGrid>
-                        <center>
-                            <p class="link">
-                                <p:commandButton value="Salvar" action="#{usuarioBean.salvar()}" />
-                            </p>
-                        </center> 
+               
+                                <p:commandButton value="Salvar" action="#{usuarioBean.salvar()}">
+                                </p:commandButton>
+              
 
                     </h:form>
                 </div>
